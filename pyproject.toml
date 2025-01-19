@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-git-versioning"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tinyman"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+tinyman = ["v1/*.json", "v2/*json"]
+
+[project]
+name = "tinyman-py-sdk"
+version="2.2.1"
+authors = [
+  { name="Tinyman", email="hello@tinyman.org" },
+]
+description = "Tinyman Python SDK"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "py-algorand-sdk >= 1.10.0",
+    "requests >= 2.0.0"
+
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
