@@ -977,6 +977,7 @@ class Pool:
         swap_type: [str, bytes],
         user_address: str = None,
         suggested_params: SuggestedParams = None,
+        txn_note_data: Optional[dict] = None
     ) -> TransactionGroup:
         user_address = user_address or self.client.user_address
 
@@ -993,7 +994,9 @@ class Pool:
             swap_type=swap_type,
             sender=user_address,
             suggested_params=suggested_params,
-            app_call_note=self.client.generate_app_call_note(),
+            app_call_note=self.client.generate_app_call_note(
+                extra_data=txn_note_data
+            ),
         )
         return txn_group
 
@@ -1002,6 +1005,7 @@ class Pool:
         quote: SwapQuote,
         user_address: str = None,
         suggested_params: SuggestedParams = None,
+        txn_note_data: Optional[dict] = None
     ) -> TransactionGroup:
         return self.prepare_swap_transactions(
             amount_in=quote.amount_in_with_slippage,
@@ -1009,6 +1013,7 @@ class Pool:
             swap_type=quote.swap_type,
             user_address=user_address,
             suggested_params=suggested_params,
+            txn_note_data=txn_note_data
         )
 
     def fetch_flash_loan_quote(

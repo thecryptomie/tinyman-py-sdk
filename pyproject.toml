@@ -3,7 +3,19 @@ requires = ["setuptools>=61.0", "setuptools-git-versioning"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["tinyman"]
+packages = [
+    "tinyman",
+    "tinyman.v1",
+    "tinyman.v2",
+    "tinyman.governance",
+    "tinyman.governance.proposal_voting",
+    "tinyman.governance.rewards",
+    "tinyman.governance.staking_voting",
+    "tinyman.governance.vault",
+    "tinyman.staking",
+    "tinyman.swap_router",
+    "tinyman.folks_lending"
+]
 include-package-data = true
 
 [tool.setuptools.package-data]

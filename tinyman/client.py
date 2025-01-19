@@ -91,9 +91,14 @@ class BaseTinymanClient:
                 return True
         return False
 
-    def generate_app_call_note(self, client_name: Optional[str] = None):
+    def generate_app_call_note(
+            self,
+            client_name: Optional[str] = None,
+            extra_data: Optional[dict] = None
+    ):
         note = generate_app_call_note(
             version=self.version,
             client_name=client_name or self.client_name,
+            extra_data=extra_data
         )
         return note
